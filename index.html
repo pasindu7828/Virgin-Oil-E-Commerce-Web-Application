@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Virgin Oils | Pure Nature Products</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4a6b3a;
+            --secondary-color: #e8c07d;
+            --light-color: #f9f5e9;
+            --dark-color: #2c3e1a;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://images.unsplash.com/photo-1533050487297-09b450131914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-hero {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-hero:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img-container {
+            overflow: hidden;
+            height: 220px;
+        }
+        
+        .product-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        
+        .card-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+        
+        .product-price {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .badge-organic {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .product-details-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: 500;
+            align-self: flex-start;
+        }
+        
+        .product-details-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .quality-feature {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            transition: all 0.3s;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .quality-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quality-feature i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-image {
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-info {
+            padding: 30px;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-links h5 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h5:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-form .form-control {
+            height: 50px;
+            border-radius: 30px 0 0 30px;
+            border: none;
+        }
+        
+        .newsletter-form .btn {
+            border-radius: 0 30px 30px 0;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 0 25px;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1199.98px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                min-height: 80vh;
+                background-attachment: scroll;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-section h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .footer {
+                padding: 50px 0 20px;
+            }
+            
+            .footer-links {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-hero {
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-seedling me-2"></i>PureNature Oils
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-4">Premium Virgin Oils</h1>
+                <p class="lead mb-5">100% Pure • Cold Pressed • Organic</p>
+                <a href="#products" class="btn btn-hero px-4 py-2">View Our Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-5" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Premium Oils</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="product-img" alt="Extra Virgin Olive Oil">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-organic">Organic</span>
+                            <h5 class="product-title">Extra Virgin Olive Oil</h5>
+                            <p class="product-description">Cold-pressed from the first pressing of organic olives, with low acidity and superior taste.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="product-price">$24.99</span>
+                                <button class="btn product-details-btn">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="product-img" alt="Virgin Coconut Oil">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-organic">Organic</span>
+                            <h5 class="product-title">Virgin Coconut Oil</h5>
+                            <p class="product-description">Cold-pressed from fresh organic coconuts, unrefined with natural aroma and nutrients.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="product-price">$18.99</span>
+                                <button class="btn product-details-btn">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="product-img" alt="Avocado Oil">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-organic">Organic</span>
+                            <h5 class="product-title">Virgin Avocado Oil</h5>
+                            <p class="product-description">Cold-pressed from premium avocados, rich in monounsaturated fats and vitamin E.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="product-price">$22.99</span>
+                                <button class="btn product-details-btn">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="product-img" alt="Almond Oil">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-organic">Organic</span>
+                            <h5 class="product-title">Virgin Almond Oil</h5>
+                            <p class="product-description">Cold-pressed from sweet almonds, rich in omega-9 fatty acids and vitamin E.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="product-price">$26.99</span>
+                                <button class="btn product-details-btn">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="product-img" alt="Sesame Oil">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-organic">Organic</span>
+                            <h5 class="product-title">Virgin Sesame Oil</h5>
+                            <p class="product-description">Cold-pressed from organic sesame seeds, with a rich nutty flavor and antioxidants.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="product-price">$19.99</span>
+                                <button class="btn product-details-btn">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img-container">
+                            <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="product-img" alt="Walnut Oil">
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-organic">Organic</span>
+                            <h5 class="product-title">Virgin Walnut Oil</h5>
+                            <p class="product-description">Cold-pressed from premium walnuts, rich in omega-3 fatty acids and polyphenols.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="product-price">$28.99</span>
+                                <button class="btn product-details-btn">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-5 bg-light" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="img-fluid about-img" alt="Our Process">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">About PureNature Oils</h2>
+                    <p class="mb-4">Founded in 2010, PureNature Oils is dedicated to providing the highest quality virgin oils through sustainable and ethical practices. Our oils are cold-pressed to preserve their natural nutrients, flavors, and aromas.</p>
+                    <p class="mb-4">We work directly with organic farmers who share our commitment to quality and environmental responsibility. Each batch of oil is carefully tested to ensure it meets our strict standards for purity and quality.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>100% Pure and Natural</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Cold-Pressed Extraction</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Organic Certified</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>No Additives or Preservatives</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Sustainable Farming Practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Promise Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Our Quality Promise</h2>
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Organic Ingredients</h4>
+                        <p>We source only certified organic ingredients to ensure purity and quality from farm to bottle.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-temperature-low"></i>
+                        <h4>Cold-Pressed</h4>
+                        <p>Our gentle cold-pressing method preserves nutrients, flavor, and aroma without heat or chemicals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="quality-feature">
+                        <i class="fas fa-award"></i>
+                        <h4>Quality Tested</h4>
+                        <p>Every batch undergoes rigorous testing to ensure it meets our high standards for purity and quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="contact-image" alt="Contact Us">
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Our Information</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                                <span>123 Oil Street, Olive Valley, CA 90210</span>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-phone me-3 mt-1"></i>
+                                <span>(555) 123-4567</span>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-envelope me-3 mt-1"></i>
+                                <span>info@purenatureoils.com</span>
+                            </li>
+                            <li class="mb-3 d-flex">
+                                <i class="fas fa-clock me-3 mt-1"></i>
+                                <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <h5>Follow Us</h5>
+                            <div class="social-icons mt-3">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-seedling me-2"></i>PureNature Oils</h5>
+                    <p class="mt-3">Providing premium quality virgin oils since 2010. Our commitment to purity and quality is unmatched in the industry.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="#">Olive Oil</a></li>
+                        <li><a href="#">Coconut Oil</a></li>
+                        <li><a href="#">Avocado Oil</a></li>
+                        <li><a href="#">Almond Oil</a></li>
+                        <li><a href="#">Sesame Oil</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Certifications</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="mt-3 newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <button class="btn" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                <p>&copy; Piyu 2025 StepprGirl Virgin Oil Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Product details modal (placeholder functionality)
+        const detailButtons = document.querySelectorAll('.product-details-btn');
+        
+        detailButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
+                const productPrice = button.closest('.product-card').querySelector('.product-price').textContent;
+                
+                // Create a modal with product details
+                const modalHTML = `
+                    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">${productTitle}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>This is a detailed view of ${productTitle} (${productPrice}). In a complete implementation, this would show:</p>
+                                    <ul>
+                                        <li>Detailed product description</li>
+                                        <li>Nutritional information</li>
+                                        <li>Usage suggestions</li>
+                                        <li>Customer reviews</li>
+                                        <li>More product images</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add modal to body
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+                
+                // Show modal
+                const productModal = new bootstrap.Modal(document.getElementById('productModal'));
+                productModal.show();
+                
+                // Remove modal after it's closed
+                document.getElementById('productModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
